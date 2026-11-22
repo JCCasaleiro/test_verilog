@@ -13,8 +13,17 @@ Tiny 8 bits CPU.
 
 ## How to test
 
-Explain how to use your project
+The 8 input bits functions described in the following table:
+
+| b7| b6| b5| b4| b3| b2| b1| b0| Description |
+|---|---|---|---|---|---|---|---|-------------|
+| 0| 0| ROM Memory Address | Use the LSbits as ROM Address and 8 Bidirectional IOs as Databus|
+| 0| 1| RAM Memory Address | Use the LSbits as RAM Address and 8 Bidirectional IOs as Databus|
+| 1| 0| 0| 0| 0| 0| 0| 0| Output Value of Register V |
+| 1| 0| 0| 0| 0| 0| 0| 1| Output Value of Register A |
+| 1| 0| 0| 0| 0| 0| 1| 0| Output Value of Register R |
+| 1| 0| 0| 0| 0| 0| 1| 1| Output Value of Register V |
 
 ## External hardware
 
-List external hardware used in your project (e.g. PMOD, LED display, etc), if any
+Requires 8 LEDs to check the CPU internal registers values. 
