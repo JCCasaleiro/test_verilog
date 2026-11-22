@@ -53,18 +53,16 @@ module Memory #(parameter WIDTH=8, LEN=4) (
     output [WIDTH-1:0] Obus,
     input [WIDTH-1:0] Ibus,
     input [LEN-1:0] Adr,
-    input Clk, Read
-);
+    input Clk, Read);
+    
     reg [WIDTH-1:0] Storage[LEN:0];
     reg [WIDTH-1:0] ObusReg;
 
     assign Obus = ObusReg;
     always @(posedge Clk)
         begin
-        if (Read==1’b0)
-            Storage[Adr] = Ibus;
-        else 
-            ObusReg = Storage[Adr];
+            if (Read==1’b0) Storage[Adr] = Ibus;
+            else ObusReg = Storage[Adr];
         end
 endmodule
 
