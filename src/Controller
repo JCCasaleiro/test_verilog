@@ -1,0 +1,165 @@
+module Control (
+  input [3:0] Opcode,
+  output reg EnA, EnV, EnR, EnC, EnZ, WR_n, RD_n, JMP, JZ, JC,
+  output reg [1:0] Ax);
+  
+  always @*
+  casez (Opcode) 
+      4'b000?: begin
+        EnA = 1'b0;
+        EnR = 1'b0;
+        EnC = 1'b0;
+        EnZ = 1'b0;
+        EnV = 1'b1;
+        Ax = 2'b11;
+        WR_n = 1'b1;
+        RD_n = 1'b1;
+        JMP = 1'b0;
+        JZ = 1'b0;
+        JC = 1'b0;
+      end
+      4'b0010: begin
+        EnA = 1'b0;
+        EnR = 1'b1;
+        EnC = 1'b0;
+        EnZ = 1'b0;
+        EnV = 1'b0;
+        Ax = 2'b00;
+        WR_n = 1'b1;
+        RD_n = 1'b1;
+        JMP = 1'b0;
+        JZ = 1'b0;
+        JC = 1'b0;
+      end
+      4'b0011: begin
+        EnA = 1'b0;
+        EnR = 1'b0;
+        EnC = 1'b0;
+        EnZ = 1'b0;
+        EnV = 1'b1;
+        Ax = 2'b10;
+        WR_n = 1'b1;
+        RD_n = 1'b1;
+        JMP = 1'b0;
+        JZ = 1'b0;
+        JC = 1'b0;
+      end
+      4'b0100: begin
+        EnA = 1'b1;
+        EnR = 1'b0;
+        EnC = 1'b0;
+        EnZ = 1'b0;
+        EnV = 1'b0;
+        Ax = 2'b00;
+        WR_n = 1'b1;
+        RD_n = 1'b1;
+        JMP = 1'b0;
+        JZ = 1'b0;
+        JC = 1'b0;
+      end
+      4'b0101: begin
+        EnA = 1'b0;
+        EnR = 1'b0;
+        EnC = 1'b0;
+        EnZ = 1'b0;
+        EnV = 1'b1;
+        Ax = 2'b01;
+        WR_n = 1'b1;
+        RD_n = 1'b0;
+        JMP = 1'b0;
+        JZ = 1'b0;
+        JC = 1'b0;
+      end
+      4'b0110: begin
+        EnA = 1'b0;
+        EnR = 1'b0;
+        EnC = 1'b0;
+        EnZ = 1'b0;
+        EnV = 1'b0;
+        Ax = 2'b00;
+        WR_n = 1'b0;
+        RD_n = 1'b1;
+        JMP = 1'b0;
+        JZ = 1'b0;
+        JC = 1'b0;
+      end
+      4'b0111: begin
+        EnA = 1'b0;
+        EnR = 1'b0;
+        EnC = 1'b1;
+        EnZ = 1'b1;
+        EnV = 1'b1;
+        Ax = 2'b00;
+        WR_n = 1'b1;
+        RD_n = 1'b1;
+        JMP = 1'b0;
+        JZ = 1'b0;
+        JC = 1'b0;
+      end
+      4'b1000: begin
+        EnA = 1'b0;
+        EnR = 1'b0;
+        EnC = 1'b1;
+        EnZ = 1'b1;
+        EnV = 1'b1;
+        Ax = 2'b00;
+        WR_n = 1'b1;
+        RD_n = 1'b1;
+        JMP = 1'b0;
+        JZ = 1'b0;
+        JC = 1'b0;
+      end
+      4'b1001: begin
+        EnA = 1'b0;
+        EnR = 1'b0;
+        EnC = 1'b0;
+        EnZ = 1'b0;
+        EnV = 1'b0;
+        Ax = 2'b00;
+        WR_n = 1'b1;
+        RD_n = 1'b1;
+        JMP = 1'b0;
+        JZ = 1'b0;
+        JC = 1'b0;
+      end
+      4'b101?: begin
+        EnA = 1'b0;
+        EnR = 1'b0;
+        EnC = 1'b0;
+        EnZ = 1'b0;
+        EnV = 1'b0;
+        Ax = 2'b00;
+        WR_n = 1'b1;
+        RD_n = 1'b1;
+        JMP = 1'b0;
+        JZ = 1'b0;
+        JC = 1'b1;
+      end
+      4'b110?: begin
+        EnA = 1'b0;
+        EnR = 1'b0;
+        EnC = 1'b0;
+        EnZ = 1'b0;
+        EnV = 1'b0;
+        Ax = 2'b00;
+        WR_n = 1'b1;
+        RD_n = 1'b1;
+        JMP = 1'b0;
+        JZ = 1'b1;
+        JC = 1'b0;
+      end
+      4'b111?: begin
+        EnA = 1'b0;
+        EnR = 1'b0;
+        EnC = 1'b0;
+        EnZ = 1'b0;
+        EnV = 1'b0;
+        Ax = 2'b00;
+        WR_n = 1'b1;
+        RD_n = 1'b1;
+        JMP = 1'b1;
+        JZ = 1'b0;
+        JC = 1'b0;
+      end
+  endcase
+endmodule
