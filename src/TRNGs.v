@@ -5,7 +5,6 @@
 
 `default_nettype none
 
-(* keep_hierarchy *)
 module tt_um_tst_verilog (
     input  wire [7:0] ui_in,    // Dedicated inputs
     output wire [7:0] uo_out,   // Dedicated outputs
@@ -19,7 +18,7 @@ module tt_um_tst_verilog (
     
     genvar k;
     generate
-        for (k = 0; k < 8; k = k + 1) begin : ROs
+        for (k = 0; k < 1; k = k + 1) begin : ROs
 
             RO #(.NG(15)) RO1(.en(ena), .sample_clk(clk), .sampled_out(uo_out[k]));
         end
