@@ -23,7 +23,13 @@ module tt_um_tst_verilog (
             RO #(.NG(15)) RO1(.en(ena), .sample_clk(clk), .sampled_out(uo_out[k]));
         end
     endgenerate
-    
+
+  // All output pins must be assigned. If not used, assign to 0.
+  assign uio_out = 0;
+  assign uio_oe  = 0;
+
+  // List all unused inputs to prevent warnings
+  wire _unused = &{ui_in, uio_in, rst_n, 1'b0};
 endmodule
 
 
