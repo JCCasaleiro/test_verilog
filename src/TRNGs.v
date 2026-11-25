@@ -21,7 +21,7 @@ module tt_um_tst_verilog (
     generate
         for (k = 0; k < 8; k = k + 1) begin : ROs
 
-            RO #(.NG(15)) RO1(.en(en), .sample_clk(clk), .sampled_out(uo_out[k]));
+            RO #(.NG(15)) RO1(.en(ena), .sample_clk(clk), .sampled_out(uo_out[k]));
         end
     endgenerate
     
